@@ -11,12 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-      html {
-        /* scroll-behavior: smooth; is now handled by JS for better control */
-      }
       body {
         font-family: 'Cairo', sans-serif;
-        /* scroll-padding-top is a fallback and set by JS */
         background-color: #f0f9ff;
         background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23dbeafe'%3E%3Cpath d='M80 40c0 22.09-17.91 40-40 40S0 62.09 0 40 17.91 0 40 0s40 17.91 40 40zM40 80c22.09 0 40-17.91 40-40S62.09 0 40 0 0 17.91 0 40s17.91 40 40 40z'/%3E%3C/g%3E%3C/svg%3E");
       }
@@ -37,18 +33,6 @@
       .hidden {
         display: none;
       }
-      #category-nav-links::-webkit-scrollbar {
-        display: none;
-      }
-      #category-nav-links {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      .active-category-link {
-        color: #2563eb; /* text-blue-700 */
-        border-bottom: 3px solid #3b82f6; /* border-blue-500 */
-        font-weight: 700;
-      }
       .cart-pop {
         animation: pop 0.3s ease-out;
       }
@@ -61,59 +45,57 @@
   </head>
   <body class="bg-blue-50 text-gray-800">
     <!-- Header -->
-    <header id="main-header" class="bg-gradient-to-b from-blue-800 to-blue-700 text-white shadow-lg sticky top-0 z-20">
-      <div class="container mx-auto py-4 px-4 flex flex-col sm:flex-row justify-center items-center gap-6 text-center sm:text-right">
-        <!-- Logo/Image Placeholder -->
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xOCAxMUM5LjUgMTEgNiA3IDMgN20xOCAwYzAgMy0xIDYtMyA4LTEuMTctMS4xNy0xLjMyLTMuMzMtMS41LTUuNUMxNS41IDcuNSA5LjUgMTEgOS41IDExIi8+PHBhdGggZD0iTTkgMy41QzUuNSAzLjUgMy41IDkgMy41IDlNMjEgMTdjMCAxLjEtLjkgMi0yIDJNMjAgOWEyLjUgMi41IDAgMSAwIDAtNSA1IDAgMSAwIDAgNS0yeiIvPjwvc3ZnPg==" alt="شعار مطعم السماك" class="w-24 h-24 rounded-full border-4 border-blue-300 bg-blue-900/50 p-2 object-contain shadow-lg">
-        <div>
-            <h1 class="text-4xl sm:text-5xl font-bold">مطعم السماك</h1>
-            <p class="text-blue-200 mt-1 text-lg">لأشهى المأكولات البحرية الطازجة</p>
+    <header class="bg-white pb-4 shadow-sm">
+        <!-- Cover Photo Area -->
+        <div class="h-40 sm:h-56 bg-gradient-to-r from-blue-700 via-cyan-600 to-blue-700">
+            <!-- You can replace this div with an <img class="w-full h-full object-cover" src="your-cover-image.jpg"> -->
         </div>
-      </div>
+        
+        <!-- Profile & Name Area -->
+        <div class="container mx-auto px-4">
+            <div class="relative -mt-16 sm:-mt-20 flex flex-col sm:flex-row items-center">
+                <!-- Logo -->
+                <div class="relative flex-shrink-0">
+                    <img class="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-white bg-white shadow-lg object-cover p-2" 
+                         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzI1NjNlYiI+PHBhdGggZD0iTTIyLjUsMTEuNWMtMC42LTAuNy0xLjQtMS4xLTIuMy0xLjNjLTAuMi0xLjEtMC43LTIuMi0xLjUtM2MtMS4yLTEuMy0zLTItNS4xLTJjLTEuOCwwLTMuNCwwLjUtNC42LDEuNCBDOCw2LjIsNyw2LDYsNmMtMi4yLDAtNCwxLjgtNCw0czEuOCw0LDQsNGMxLDAsMi0wLjMsMi44LTAuOGMxLjIsMC45LDIuOCwxLjQsNC42LDEuNGMyLjEsMCwzLjktMC43LDUuMS0yIGMwLjgtMC44LDEuMy0xLjksMS41LTNjMC45LTAuMiwxLjctMC42LDIuMy0xLjNDMjMsMTIuNSwyMywxMiwSjIuNSwxMS41eiBNNiwxMmMtMS4xLDAtMi0wLjktMi0yczAuOS0yLDItMnMyLDAuOSwyLDJTNzEuMSwxMiw2LDEyeiIvPjwvc3ZnPg==" 
+                         alt="شعار مطعم السماك">
+                </div>
+
+                <!-- Name and Slogan -->
+                <div class="mt-4 sm:mt-0 sm:mr-6 text-center sm:text-right w-full">
+                    <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">مطعم السماك</h1>
+                    <p class="text-gray-500 mt-1 text-md sm:text-lg">لأشهى المأكولات البحرية الطازجة</p>
+                </div>
+            </div>
+        </div>
     </header>
 
     <!-- Best Dishes Section -->
-    <section id="best-dishes" class="bg-white py-8 px-4 border-b-2 border-gray-200">
+    <section id="best-dishes" class="bg-transparent py-8 px-4 mt-4">
       <div class="container mx-auto">
         <h2 class="text-3xl font-bold text-center text-blue-800 mb-6">أفضل الأطباق</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Card 1: طاجن سي فود -->
-          <div class="border rounded-lg p-4 text-center shadow-lg transform hover:scale-105 transition-transform duration-300 flex flex-col items-center">
+          <div class="bg-white border rounded-lg p-4 text-center shadow-lg transform hover:scale-105 transition-transform duration-300 flex flex-col items-center">
             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNjY2NjY2MiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkNhaXJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNTU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj7Ys9mE2KLYpyDYp9mE2YXYpNmE2Kkg2KHHrNin2KfZitmI2Kk8L3RleHQ+PC9zdmc+" alt="طاجن سي فود" class="w-full h-40 object-cover rounded-md mx-auto mb-4">
             <h3 class="text-xl font-bold">طاجن سي فود بالكريمة</h3>
             <p class="text-gray-600 my-2 flex-grow">طاجن ثمار البحر بالصوص الأبيض في الفرن.</p>
-            <button data-scroll-to-item-id="9" class="best-dish-btn mt-4 bg-yellow-500 text-blue-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition-colors">
-              اطلب الآن
-            </button>
           </div>
           <!-- Card 2: شوربة سي فود -->
-          <div class="border rounded-lg p-4 text-center shadow-lg transform hover:scale-105 transition-transform duration-300 flex flex-col items-center">
+          <div class="bg-white border rounded-lg p-4 text-center shadow-lg transform hover:scale-105 transition-transform duration-300 flex flex-col items-center">
             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNjY2NjY2MiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkNhaXJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNTU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj7Yp9mE2LHZg9mKINin2YTZhdmE2YXYpzwvdGV4dD48L3N2Zz4=" alt="شوربة سي فود" class="w-full h-40 object-cover rounded-md mx-auto mb-4">
             <h3 class="text-xl font-bold">شوربة سي فود</h3>
             <p class="text-gray-600 my-2 flex-grow">مزيج غني من ثمار البحر الطازجة بالكريمة.</p>
-            <button data-scroll-to-item-id="1" class="best-dish-btn mt-4 bg-yellow-500 text-blue-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition-colors">
-              اطلب الآن
-            </button>
           </div>
           <!-- Card 3: سمك دنيس -->
-          <div class="border rounded-lg p-4 text-center shadow-lg transform hover:scale-105 transition-transform duration-300 flex flex-col items-center">
+          <div class="bg-white border rounded-lg p-4 text-center shadow-lg transform hover:scale-105 transition-transform duration-300 flex flex-col items-center">
             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNjY2NjY2MiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkNhaXJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNTU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj7Yp9mE2Yog2KjZgdmI2YTZpzwvdGV4dD48L3N2Zz4=" alt="سمك دنيس" class="w-full h-40 object-cover rounded-md mx-auto mb-4">
             <h3 class="text-xl font-bold">سمك دنيس</h3>
             <p class="text-gray-600 my-2 flex-grow">سمك دنيس طازج (السعر للكيلو).</p>
-            <button data-scroll-to-item-id="11" class="best-dish-btn mt-4 bg-yellow-500 text-blue-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition-colors">
-              اطلب الآن
-            </button>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Category Navigation -->
-    <nav id="category-nav" class="sticky bg-white/95 backdrop-blur-sm shadow-md z-10 hidden">
-        <div id="category-nav-links" class="container mx-auto flex items-center overflow-x-auto whitespace-nowrap px-2">
-            <!-- Links will be generated by JS -->
-        </div>
-    </nav>
 
     <!-- Menu -->
     <main id="menu-container" class="container mx-auto p-4">
@@ -148,7 +130,7 @@
 
 
     <!-- Floating Cart Button -->
-    <button id="floating-cart-button" class="fixed bottom-6 right-6 bg-blue-600 text-white rounded-full shadow-lg w-16 h-16 flex items-center justify-center z-20 hover:bg-blue-700 transition-transform transform hover:scale-110">
+    <button id="floating-cart-button" class="fixed bottom-6 left-6 bg-blue-600 text-white rounded-full shadow-lg w-16 h-16 flex items-center justify-center z-20 hover:bg-blue-700 transition-transform transform hover:scale-110">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
@@ -167,14 +149,22 @@
         <div id="cart-items-container" class="flex-grow overflow-y-auto p-4">
           <!-- Cart items will be generated by JavaScript -->
         </div>
-        <footer class="p-4 bg-gray-100 border-t">
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-lg font-bold">الإجمالي</span>
-            <span id="cart-total" class="text-xl font-bold text-blue-700">0.00 جنيه</span>
-          </div>
-          <button id="checkout-button" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed">
+        <footer class="p-4 bg-gray-100 border-t space-y-3">
+            <div class="flex justify-between items-center text-gray-700">
+                <span>المجموع الفرعي</span>
+                <span id="cart-subtotal">0.00 جنيه</span>
+            </div>
+            <div class="flex justify-between items-center text-gray-700">
+                <span>رسوم التوصيل</span>
+                <span id="cart-delivery-fee">0.00 جنيه</span>
+            </div>
+            <div class="border-t pt-3 mt-3 flex justify-between items-center">
+                <span class="text-lg font-bold">الإجمالي</span>
+                <span id="cart-total" class="text-xl font-bold text-blue-700">0.00 جنيه</span>
+            </div>
+            <button id="checkout-button" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed">
             اتمام عملية الشراء
-          </button>
+            </button>
         </footer>
       </div>
     </div>
@@ -273,18 +263,17 @@
           },
         ];
         let cart = [];
+        const DELIVERY_FEE = 15;
 
         // --- DOM Elements ---
-        const mainHeader = document.getElementById('main-header');
         const menuContainer = document.getElementById('menu-container');
-        const categoryNav = document.getElementById('category-nav');
-        const categoryNavLinks = document.getElementById('category-nav-links');
-        const bestDishesSection = document.getElementById('best-dishes');
         const floatingCartButton = document.getElementById('floating-cart-button');
         const cartItemCountSpan = document.getElementById('cart-item-count');
         const cartSidebar = document.getElementById('cart-sidebar');
         const cartCloseButton = document.getElementById('cart-close-button');
         const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartSubtotalSpan = document.getElementById('cart-subtotal');
+        const cartDeliveryFeeSpan = document.getElementById('cart-delivery-fee');
         const cartTotalSpan = document.getElementById('cart-total');
         const checkoutButton = document.getElementById('checkout-button');
         const checkoutModal = document.getElementById('checkout-modal');
@@ -326,16 +315,14 @@
               </div>
             </section>
           `).join('');
-
-          categoryNavLinks.innerHTML = menuData.map((category, index) => 
-            `<a href="#category-${index}" class="category-link px-4 py-3 text-gray-600 hover:text-blue-700 transition-colors">${category.title}</a>`
-          ).join('');
-          categoryNav.classList.remove('hidden');
         };
         
         const updateCartView = () => {
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const isCartEmpty = cart.length === 0;
+            const deliveryFee = isCartEmpty ? 0 : DELIVERY_FEE;
+            const totalPrice = subtotal + deliveryFee;
 
             if (totalItems > 0) {
                 cartItemCountSpan.textContent = totalItems;
@@ -343,11 +330,13 @@
             } else {
                 cartItemCountSpan.classList.add('hidden');
             }
-
+            
+            cartSubtotalSpan.textContent = `${subtotal.toFixed(2)} جنيه`;
+            cartDeliveryFeeSpan.textContent = `${deliveryFee.toFixed(2)} جنيه`;
             cartTotalSpan.textContent = `${totalPrice.toFixed(2)} جنيه`;
-            checkoutButton.disabled = cart.length === 0;
+            checkoutButton.disabled = isCartEmpty;
 
-            if (cart.length === 0) {
+            if (isCartEmpty) {
                 cartItemsContainer.innerHTML = `<p class="text-gray-500 text-lg text-center mt-10">سلتك فارغة.</p>`;
             } else {
                 cartItemsContainer.innerHTML = cart.map(item => `
@@ -420,7 +409,9 @@
 
             if (!isValid) return;
 
-            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const total = subtotal + DELIVERY_FEE;
+            
             let orderMessage = `*طلب جديد من مطعم السماك*\n\n*العميل:* ${nameInput.value}\n*رقم التواصل:* ${phoneInput.value}\n*العنوان:* رقم العمارة/الشقة ${buildingInput.value}\n`;
             const landmarkValue = document.getElementById('landmark').value;
             if (landmarkValue) {
@@ -431,7 +422,11 @@
                 const sizeText = item.size === 'medium' ? ' (وسط)' : ' (كبير)';
                 orderMessage += `- ${item.name}${sizeText} (الكمية: ${item.quantity}) - ${item.price * item.quantity} جنيه\n`;
             });
-            orderMessage += `\n*الإجمالي: ${total.toFixed(2)} جنيه*`;
+            
+            orderMessage += `\n*المجموع الفرعي: ${subtotal.toFixed(2)} جنيه*`;
+            orderMessage += `\n*رسوم التوصيل: ${DELIVERY_FEE.toFixed(2)} جنيه*`;
+            orderMessage += `\n*الإجمالي النهائي: ${total.toFixed(2)} جنيه*`;
+
 
             const whatsappNumber = "201030566078";
             const encodedMessage = encodeURIComponent(orderMessage);
@@ -445,48 +440,6 @@
             window.open(whatsappUrl, '_blank');
         };
         
-        // --- SCROLLING & OBSERVER ---
-        const observerCallback = (entries) => {
-            entries.forEach(entry => {
-                const navLink = categoryNavLinks.querySelector(`a[href="#${entry.target.id}"]`);
-                if (entry.isIntersecting && navLink) {
-                    categoryNavLinks.querySelectorAll('a').forEach(a => a.classList.remove('active-category-link'));
-                    navLink.classList.add('active-category-link');
-                    navLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                }
-            });
-        };
-        
-        const setupStickyNavigation = () => {
-            if (!mainHeader || !categoryNav) return;
-            const headerHeight = mainHeader.offsetHeight;
-            const navHeight = categoryNav.offsetHeight;
-            const totalStickyHeight = headerHeight + navHeight;
-            
-            categoryNav.style.top = `${headerHeight}px`;
-            document.documentElement.style.scrollPaddingTop = `${totalStickyHeight}px`;
-
-            const observerOptions = { root: null, rootMargin: `-${totalStickyHeight + 1}px 0px -40% 0px`, threshold: 0 };
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-            document.querySelectorAll('#menu-container section').forEach(section => observer.observe(section));
-        };
-        
-        const smoothScrollTo = (targetElement) => {
-            if (!targetElement) return;
-        
-            const headerHeight = mainHeader.offsetHeight;
-            const navHeight = categoryNav.offsetHeight;
-            const stickyOffset = headerHeight + navHeight;
-        
-            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - stickyOffset;
-        
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        };
-
         // --- EVENT LISTENERS ---
         menuContainer.addEventListener('click', (e) => {
             const button = e.target.closest('.add-to-cart-btn');
@@ -521,30 +474,6 @@
                 handleUpdateQuantity(itemId, size, change);
             }
         });
-        
-        categoryNavLinks.addEventListener('click', (e) => {
-            const link = e.target.closest('a.category-link');
-            if (link) {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                smoothScrollTo(targetElement);
-            }
-        });
-
-        if (bestDishesSection) {
-            bestDishesSection.addEventListener('click', (e) => {
-                const button = e.target.closest('.best-dish-btn');
-                if (button) {
-                    e.preventDefault();
-                    const itemId = button.dataset.scrollToItemId;
-                    const targetCategory = menuData.find(cat => cat.items.some(item => item.id == itemId));
-                    const categoryIndex = menuData.indexOf(targetCategory);
-                    const targetElement = document.getElementById(`category-${categoryIndex}`);
-                    smoothScrollTo(targetElement);
-                }
-            });
-        }
 
         floatingCartButton.addEventListener('click', () => cartSidebar.classList.remove('hidden'));
         cartCloseButton.addEventListener('click', () => cartSidebar.classList.add('hidden'));
@@ -559,8 +488,6 @@
         // --- INITIALIZATION ---
         renderMenu();
         updateCartView();
-        setupStickyNavigation();
-        window.addEventListener('resize', setupStickyNavigation);
       });
     </script>
   </body>
