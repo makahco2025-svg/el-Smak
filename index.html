@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
@@ -214,6 +213,25 @@
         <button id="confirmation-close-button" class="w-full px-6 py-2 text-white bg-green-600 rounded-lg hover:bg-green-700">حسنًا</button>
       </div>
     </div>
+    
+    <!-- Item Details Modal -->
+    <div id="details-modal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden">
+      <div class="bg-white rounded-lg p-6 w-full max-w-lg shadow-2xl relative max-h-[90vh] flex flex-col sm:flex-row gap-6">
+        <button id="details-close-button" class="absolute -top-2 -right-2 text-white bg-gray-700 rounded-full w-8 h-8 flex items-center justify-center text-2xl hover:bg-gray-900 z-10">&times;</button>
+        <img id="details-modal-image" src="" alt="" class="w-full sm:w-1/2 h-auto object-cover rounded-md bg-gray-200">
+        <div class="flex flex-col">
+          <h2 id="details-modal-title" class="text-3xl font-bold text-gray-800 mb-2"></h2>
+          <p id="details-modal-description" class="text-gray-600 mb-4 flex-grow"></p>
+          <div class="border-t pt-4">
+            <h3 class="text-lg font-semibold mb-2">الأسعار:</h3>
+            <div id="details-modal-prices" class="space-y-1 text-lg">
+                <!-- Prices will be injected here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
@@ -281,6 +299,12 @@
         const checkoutCancelButton = document.getElementById('checkout-cancel-button');
         const confirmationModal = document.getElementById('confirmation-modal');
         const confirmationCloseButton = document.getElementById('confirmation-close-button');
+        const detailsModal = document.getElementById('details-modal');
+        const detailsCloseButton = document.getElementById('details-close-button');
+        const detailsModalImage = document.getElementById('details-modal-image');
+        const detailsModalTitle = document.getElementById('details-modal-title');
+        const detailsModalDescription = document.getElementById('details-modal-description');
+        const detailsModalPrices = document.getElementById('details-modal-prices');
 
         // --- RENDER FUNCTIONS ---
         const renderMenu = () => {
@@ -290,7 +314,7 @@
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 ${category.items.map(item => `
                   <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 flex flex-col">
-                    <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover bg-gray-200" />
+                    <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover bg-gray-200 cursor-pointer" data-item-id="${item.id}" />
                     <div class="p-4 flex flex-col flex-grow">
                       <h3 class="text-xl font-bold text-gray-800">${item.name}</h3>
                       <p class="text-gray-600 mt-1 flex-grow">${item.description}</p>
@@ -353,6 +377,23 @@
                     </div>
                 `).join('');
             }
+        };
+
+        const showDetailsModal = (itemId) => {
+            const item = findMenuItem(itemId);
+            if (!item) return;
+
+            detailsModalImage.src = item.image;
+            detailsModalImage.alt = item.name;
+            detailsModalTitle.textContent = item.name;
+            detailsModalDescription.textContent = item.description;
+            
+            detailsModalPrices.innerHTML = `
+                <p><span>وسط:</span> <span class="font-bold">${item.price.medium} جنيه</span></p>
+                <p><span>كبير:</span> <span class="font-bold">${item.price.large} جنيه</span></p>
+            `;
+
+            detailsModal.classList.remove('hidden');
         };
 
         // --- CORE LOGIC FUNCTIONS ---
@@ -443,6 +484,8 @@
         // --- EVENT LISTENERS ---
         menuContainer.addEventListener('click', (e) => {
             const button = e.target.closest('.add-to-cart-btn');
+            const image = e.target.closest('img[data-item-id]');
+
             if (button && !button.disabled) {
                 const itemId = parseInt(button.dataset.itemId);
                 const card = button.closest('.bg-white');
@@ -462,6 +505,9 @@
                     button.classList.remove('cursor-not-allowed');
                     button.innerHTML = originalText;
                 }, 1500);
+            } else if (image) {
+                const itemId = parseInt(image.dataset.itemId);
+                showDetailsModal(itemId);
             }
         });
         
@@ -484,6 +530,14 @@
         checkoutModal.addEventListener('click', (e) => { if(e.target === checkoutModal) checkoutModal.classList.add('hidden'); });
         confirmationCloseButton.addEventListener('click', () => confirmationModal.classList.add('hidden'));
         confirmationModal.addEventListener('click', (e) => { if(e.target === confirmationModal) confirmationModal.classList.add('hidden'); });
+        
+        const closeDetailsModal = () => detailsModal.classList.add('hidden');
+        detailsCloseButton.addEventListener('click', closeDetailsModal);
+        detailsModal.addEventListener('click', (e) => {
+            if (e.target === detailsModal) {
+                closeDetailsModal();
+            }
+        });
         
         // --- INITIALIZATION ---
         renderMenu();
